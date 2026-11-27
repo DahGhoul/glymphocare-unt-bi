@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: ../..
+      dockerfile: deploy/aws/Dockerfile.backend
+    restart: unless-stopped
+    env_file:
+      - ../../.env
+    expose:
+      - "8000"
+
+  frontend:
+    build:
+      context: ../..
+      dockerfile: deploy/aws/Dockerfile.frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"

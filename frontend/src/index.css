@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --gc-bg: #f6f8fa;
+  --gc-surface: #ffffff;
+  --gc-surface-alt: #f1f5f9;
+  --gc-border: #dce2ea;
+  --gc-border-strong: #cbd5e1;
+  --gc-ink: #14202b;
+  --gc-muted: #5a6877;
+  --gc-teal: #0f766e;
+  --gc-teal-light: #e6f4f3;
+  --gc-teal-mid: #bfe5e2;
+  --gc-n3: #3b4990;
+  --gc-good: #15803d;
+  --gc-good-bg: #ecfdf5;
+  --gc-warn: #b45309;
+  --gc-warn-bg: #fffbeb;
+  --gc-bad: #b91c1c;
+  --gc-bad-bg: #fef2f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--gc-bg);
+  color: var(--gc-ink);
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono-num {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tabla clinica oficial (coherente con el prototipo HTML validado) */
+.clinical-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--gc-border);
+  border-radius: 6px;
+  background: var(--gc-surface);
+}
+
+.clinical-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.clinical-table th {
+  background: var(--gc-teal);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 6px 8px;
+  text-align: right;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  white-space: normal;
+  line-height: 1.25;
+}
+
+.clinical-table th:first-child {
+  text-align: left;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+
+.clinical-table th.group-head {
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.clinical-table td {
+  padding: 6px 10px;
+  text-align: right;
+  border-bottom: 1px solid var(--gc-border);
+  font-family: "IBM Plex Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.clinical-table td:first-child {
+  text-align: left;
+  font-family: "IBM Plex Sans", sans-serif;
+  position: sticky;
+  left: 0;
+  background: inherit;
+  z-index: 1;
+}
+
+.clinical-table tr.row-group td {
+  background: #f8fafc;
+  font-weight: 700;
+  color: var(--gc-ink);
+  font-family: "IBM Plex Sans", sans-serif;
+  padding-top: 9px;
+}
+
+.clinical-table tr.row-item {
+  background: #ffffff;
+}
+
+.clinical-table tr.row-item td:first-child {
+  padding-left: 22px;
+}
+
+.clinical-table tr.row-subtotal td {
+  background: var(--gc-teal-light);
+  font-weight: 700;
+}
+
+.clinical-table tr.row-total td {
+  background: var(--gc-teal-mid);
+  font-weight: 700;
+  border-bottom: 0;
+}
+
+.clinical-table td.cell-bad {
+  color: var(--gc-bad);
+  font-weight: 700;
+}
